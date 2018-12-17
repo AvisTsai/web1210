@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    {% block main %}
+    <h2>{{ book.id }} {{ book.name }}</h2>
+    <hr>
+    <p>Name: {{ book.name }}</p>
+    <p>Price: {{ book.price }}</p>    
+    <p>Introtruction: {{ book.introtruction }}</p>
+    <a href="{% url 'books-index' %}"> class = "btn btn-primary"</a>
+    {% endblock %}
+</body>
+</html>

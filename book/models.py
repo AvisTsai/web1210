@@ -6,4 +6,5 @@ class Book(models.Model):
     introduction = models.TextField()
 
     def __str__(self):
-        return "{},({})".format(self.name, self.id)
+        return "{},({})".format(self.name, self.price)
+        
