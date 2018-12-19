@@ -1,5 +1,7 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, redirect
+from django.contrib import messages
 
+from .forms import BookForm
 from .models import Book
 
 def index(request):
@@ -15,4 +17,10 @@ def show(request, pk):
     return render(request, 'books/show.html', {'books':book})
 
 def add(request):
-    return render(request, "books/add.html")
+    form = BookForm(request.POST or None)
+    if form.is_valid():
+        form.save()         
+        messages.success(request, '新增成功')
+        return redirect('books-index')
+
+    return render(request, "books/add.html", {'form': form})
