@@ -13,7 +13,9 @@
     <p>Name: {{ book.name }}</p>
     <p>Price: {{ book.price }}</p>    
     <p>Introtruction: {{ book.introtruction }}</p>
-    <a href="{% url 'books-index' %}"> class = "btn btn-primary"</a>
+    <a href="{% url 'books:index' %}" class="btn btn-primary"><< Back</a>
+    <a href="{% url 'books:edit' book.id %}" class="btn btn-info">edit</a>
+    <a href="{% url 'books:delete' book.id %}" class="btn btn-info">Delete</a>
     {% endblock %}
 </body>
 </html>
